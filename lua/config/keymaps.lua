@@ -8,10 +8,18 @@ map({ "n", "v" }, "f", function()
   require("flash").jump()
 end, { desc = "Flash" })
 
-map("n", "<C-q>", "<cmd>qa<cr>", { desc = "Exit" })
+map("n", "<S-u>", "<cmd>redo<cr>", { desc = "Redo last undo" })
+map("n", "<C-q>", "<cmd>only<cr><cmd>exit<cr>", { desc = "Exit" })
+map("n", "m", "<cmd>messages<cr>", { desc = "Show messages" })
+map(
+  "n",
+  "<C-r>",
+  "<cmd>Run<cr>",
+  { desc = "Run the command defined by 'Rdef'" }
+)
 map(
   "n",
   "<leader><esc>",
   "<cmd>Neotree close<cr><cmd>only<cr>",
-  { desc = "Exit" }
+  { desc = "Close other windows" }
 )

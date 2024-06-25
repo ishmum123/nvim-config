@@ -3,9 +3,9 @@ return {
     "folke/noice.nvim",
     opts = {
       notify = {
-        enabled = false,
+        enabled = true,
       },
     },
   },
-  { "rcarriga/nvim-notify", enabled = false },
+  { "rcarriga/nvim-notify", enabled = true },
 }
