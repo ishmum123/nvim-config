@@ -20,6 +20,6 @@ map(
 map(
   "n",
   "<leader><esc>",
-  "<cmd>Neotree close<cr><cmd>only<cr>",
+  "<cmd>Neotree close<cr><cmd>silent only<cr>",
   { desc = "Close other windows" }
 )
