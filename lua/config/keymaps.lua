@@ -16,20 +16,15 @@ map(
   comment.call("toggle.blockwise", "g@"),
   { desc = "Toggle Comment Block", expr = true }
 )
-map("n", "<C-w>", "<cmd>bd<cr>", { desc = "Close current buffer" })
-map("n", "<S-u>", "<cmd>redo<cr>", { desc = "Redo last undo" })
-map("n", "<C-q>", "<cmd>only<cr><cmd>exit<cr>", { desc = "Exit" })
-map("n", "m", "<cmd>messages<cr>", { desc = "Show messages" })
-map(
-  "n",
-  "<C-r>",
-  "<cmd>Run<cr>",
-  { desc = "Run the command defined by 'Rdef'" }
-)
+map("n", "<C-w>", ":bd<cr>", { desc = "Close current buffer" })
+map("n", "<S-u>", ":redo<cr>", { desc = "Redo last undo" })
+map("n", "<C-q>", ":q<cr>", { desc = "Close Window" })
+map("n", "m", ":messages<cr>", { desc = "Show messages" })
+-- map("n", "<C-r>", ":Run<cr>", { desc = "Run the command defined by 'Rdef'" })
 map(
   "n",
   "<leader><esc>",
-  "<cmd>Neotree close<cr><cmd>silent only<cr>",
+  ":Neotree close<cr><cmd>silent only<cr>",
   { desc = "Close other windows" }
 )
 map("n", "<C-z>", function()

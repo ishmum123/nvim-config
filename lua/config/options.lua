@@ -6,9 +6,22 @@ local opt = vim.opt
 
 opt.wrap = true
 opt.clipboard = "unnamedplus"
+opt.ignorecase = true    -- search case insensitive
+opt.smartcase = true     -- search matters if capital letter
+opt.inccommand = "split" -- "for incsearch while sub
 
-local create_command = vim.api.nvim_create_user_command
+vim.o.sessionoptions =
+"blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
-create_command("Rdef", function(opts)
-  create_command("Run", opts.fargs[1], {})
-end, { nargs = 1 })
+local create_cmd = vim.api.nvim_create_user_command
+
+create_cmd("Define", function(opts)
+  local cmd = opts.fargs[1]
+  create_cmd(cmd, opts.fargs[2], {})
+  vim.keymap.set(
+    "n",
+    "<C-" .. string.sub(cmd, 1, 1) .. ">",
+    "<cmd>" .. cmd .. "<cr>",
+    { desc = "Run the command defined by 'Define'" }
+  )
+end, { nargs = '+' })
